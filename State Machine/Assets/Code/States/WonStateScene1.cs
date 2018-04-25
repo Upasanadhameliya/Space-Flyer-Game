@@ -12,7 +12,8 @@ namespace Assets.Code.States
             manager = managerRef;
             if (Application.loadedLevelName != "Scene0")
                 Application.LoadLevel("Scene0");
-            Debug.Log("Constructing WonStateScene1");
+
+            manager.gameDataRef.SetScore();
         }
 
         public void StateUpdate()

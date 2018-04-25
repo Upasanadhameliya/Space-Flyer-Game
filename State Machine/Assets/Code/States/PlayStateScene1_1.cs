@@ -31,13 +31,13 @@ namespace Assets.Code.States
 
         public void StateUpdate()
         {
-            if (manager.gameDataRef.playerLives >= 2)
+            if (manager.gameDataRef.score >= 2)
             {
                 manager.SwitchState(new WonStateScene1(manager));
                 rb.isKinematic = true;
                 player.transform.position = new Vector3(50, .5f, 40);
             }
-            if(Input.GetKeyUp(KeyCode.Return))
+            if(manager.gameDataRef.playerLives <= 0)
             {
                 manager.SwitchState(new LostStateScene1(manager));
                 manager.gameDataRef.ResetPlayer();

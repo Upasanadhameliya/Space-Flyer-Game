@@ -251,13 +251,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beginStateSplash: {fileID: 2800000, guid: e8e7158c248384348a7f1e269a4b0e89, type: 3}
-  wonStateSplash: {fileID: 2800000, guid: e5c09e7359c781c4586aa5cf3e9f9368, type: 3}
-  lostStateSplahsh: {fileID: 0}
+  wonStateSplash: {fileID: 2800000, guid: 25dafdf8ee2d1c54aa626c7e3f05c636, type: 3}
+  lostStateSplash: {fileID: 2800000, guid: e5c09e7359c781c4586aa5cf3e9f9368, type: 3}
   cameras:
   - {fileID: 869033321}
   - {fileID: 1346801505}
   - {fileID: 344107878}
   playerLives: 0
+  score: 0
 --- !u!1 &682584150
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,6 +270,7 @@ GameObject:
   - component: {fileID: 682584154}
   - component: {fileID: 682584153}
   - component: {fileID: 682584152}
+  - component: {fileID: 682584155}
   m_Layer: 0
   m_Name: Blob
   m_TagString: Untagged
@@ -284,7 +286,7 @@ Transform:
   m_GameObject: {fileID: 682584150}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.031, y: 0.62, z: -0.27}
-  m_LocalScale: {x: 0.32, y: 1.3, z: 0.35}
+  m_LocalScale: {x: 0.37721565, y: 1.3, z: 0.35}
   m_Children: []
   m_Father: {fileID: 1157163348}
   m_RootOrder: 0
@@ -342,6 +344,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 682584150}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &682584155
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 682584150}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.2300844, y: 1, z: 2.1410992}
+  m_Center: {x: -0.16985749, y: 0, z: 0.57054955}
 --- !u!1 &869033321
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,11 +526,11 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1157163347}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.1405673, y: 2.173871, z: 1.2587203}
+  m_Center: {x: 0.059360743, y: -0.46535063, z: -0.004592657}
 --- !u!33 &1157163351
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -544,6 +558,8 @@ MonoBehaviour:
   green: {r: 0, g: 1, b: 0, a: 1}
   yellow: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   white: {r: 1, g: 1, b: 1, a: 1}
+  projectile: {fileID: 54015185405522116, guid: 4f816b13b34ec9c4da343af9cdd3c0f2,
+    type: 2}
 --- !u!54 &1157163353
 Rigidbody:
   m_ObjectHideFlags: 0

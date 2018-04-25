@@ -18,6 +18,17 @@ public class PlayerControl : MonoBehaviour {
     private GameObject blob;
 
     private Rigidbody rb;
+    private GameData gameDataRef;
+
+    public Rigidbody projectile;
+
+    public void FireEnergyPulse()
+    {
+        Rigidbody clone;
+        clone = Instantiate(projectile, transform.position, transform.rotation) as Rigidbody;
+        clone.transform.Translate(0, .5f, 2.1f);
+        clone.velocity = transform.TransformDirection(Vector3.forward * 50);
+    }
 
     private void FixedUpdate()
     {
@@ -27,6 +38,24 @@ public class PlayerControl : MonoBehaviour {
         rb.AddTorque(0, rotation, 0);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "GoodOrb")
+        {
+            gameDataRef.score += 1;
+            Destroy(other.gameObject);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "BadOrb")
+        {
+            gameDataRef.playerLives -= 1;
+            Destroy(collision.gameObject);
+        }
+    }
+
     private void OnTriggerStay(Collider other)
     {
         rb.AddForce(Vector3.up * hoverPower);
@@ -34,6 +63,7 @@ public class PlayerControl : MonoBehaviour {
 
     void Start () {
         rb = GetComponent<Rigidbody>();
+        gameDataRef = GameObject.Find("GameManager").GetComponent<GameData>();
     }
 	
 	
